@@ -7,7 +7,7 @@ import { TmdbService } from '../services/tmdb.service';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
-  movies: Array<Object> = [];
+  movies: Array<any> = [];
 
   constructor(private tmdb: TmdbService) {}
 
