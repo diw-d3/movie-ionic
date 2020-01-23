@@ -9,7 +9,8 @@ const routes: Routes = [
     component: TabsPage,
     children: [
       { path: 'home', loadChildren: () => import('../home/home.module').then( m => m.HomePageModule)},
-      { path: 'top', loadChildren: () => import('../top/top.module').then( m => m.TopPageModule)}
+      { path: 'top', loadChildren: () => import('../top/top.module').then( m => m.TopPageModule)},
+      { path: 'now', loadChildren: () => import('../now/now.module').then( m => m.NowPageModule)}
     ]
   }
 ];

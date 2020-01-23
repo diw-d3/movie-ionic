@@ -21,4 +21,10 @@ export class TmdbService {
       (response: any) => response.results
     );
   }
+
+  getNowMovies(): Promise<any> {
+    return this.http.get(this.url + '/movie/now_playing?api_key=' + this.apiKey).toPromise().then(
+      (response: any) => response.results
+    );
+  }
 }
