@@ -1,1 +1,19 @@
+h1 {
+  margin: 0;
+}
 
+ion-card-content {
+  h3 {
+    font-size: 18px;
+    color: #000;
+    font-weight: 700;
+  }
+
+  strong {
+    color: #000;
+  }
+
+  ion-icon[name="star"] {
+    color: #fbcd00;
+  }
+}

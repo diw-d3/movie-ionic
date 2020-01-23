@@ -6,6 +6,7 @@ import { Component } from '@angular/core';
   styleUrls: ['home.page.scss'],
 })
 export class HomePage {
+  movies: Array<any> = [1, 2, 3];
 
   constructor() {}
 
