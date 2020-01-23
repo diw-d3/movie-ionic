@@ -1,0 +1,46 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title class="ion-text-center">Movies</ion-title>
+    <ion-buttons slot="end">
+      <ion-button>
+        <ion-icon name="search"></ion-icon>
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <div class="ion-padding">
+    <ion-grid>
+      <ion-row>
+        <ion-col>
+          <h1>Top</h1>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+    <ion-grid>
+      <ion-row *ngIf="movies">
+        <ion-col size="6" *ngFor="let movie of movies">
+          <ion-card class="ion-no-margin">
+            <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" />
+            <ion-card-content>
+              <h3>{{ movie.title }}</h3>
+              <ion-grid class="ion-no-padding ion-justify-content-center">
+                <ion-row class="ion-no-padding">
+                  <ion-col class="ion-no-padding">
+                    <p>{{ movie.release_date | date:'y' }}</p>
+                  </ion-col>
+                  <ion-col class="ion-no-padding">
+                    <p>
+                      <ion-icon name="star"></ion-icon> <strong>{{ movie.vote_average }}</strong>/10
+                    </p>
+                  </ion-col>
+                </ion-row>
+              </ion-grid>
+            </ion-card-content>
+          </ion-card>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+  </div>
+</ion-content>

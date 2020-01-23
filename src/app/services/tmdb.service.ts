@@ -15,4 +15,10 @@ export class TmdbService {
       (response: any) => response.results
     );
   }
+
+  getTopMovies(): Promise<any> {
+    return this.http.get(this.url + '/movie/top_rated?api_key=' + this.apiKey).toPromise().then(
+      (response: any) => response.results
+    );
+  }
 }
