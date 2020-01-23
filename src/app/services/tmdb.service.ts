@@ -27,4 +27,9 @@ export class TmdbService {
       (response: any) => response.results
     );
   }
+
+  getMovie(id): Promise<any> {
+    return this.http.get(this.url + '/movie/' + id + '?api_key=' + this.apiKey + '&append_to_response=credits')
+               .toPromise();
+  }
 }
