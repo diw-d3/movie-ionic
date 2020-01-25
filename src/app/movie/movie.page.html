@@ -10,12 +10,14 @@
 <ion-content>
   <div *ngIf="movie">
     <div class="ion-text-center background-movie"
-         [ngStyle]="{'background-image': 'url(https://image.tmdb.org/t/p/w400' + movie.backdrop_path + ')'}"
+         [ngStyle]="{
+           'background-image': 'url(https://image.tmdb.org/t/p/w400' + movie.backdrop_path + ')'
+          }"
       >
       <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" width="125" />
     </div>
 
     <h1 class="ion-text-center">{{ movie.original_title }}</h1>
-    {{ movie.credits | json }}
+    {{ movie | json }}
   </div>
 </ion-content>
