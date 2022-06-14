@@ -6,7 +6,7 @@ import { HttpClient } from '@angular/common/http';
 })
 export class TmdbService {
   private url: string = 'https://api.themoviedb.org/3';
-  private apiKey: string = 'YOUR_API_KEY';
+  private apiKey: string = 'ebc0a4ad59da5f80113ec7d1142c72a7';
 
   constructor(private http: HttpClient) { }
 
@@ -30,6 +30,21 @@ export class TmdbService {
 
   getMovie(id): Promise<any> {
     return this.http.get(this.url + '/movie/' + id + '?api_key=' + this.apiKey + '&append_to_response=credits')
+               .toPromise();
+  }
+
+  searchMovies(query): Promise<any> {
+    return this.http.get(this.url + '/search/movie?api_key=' + this.apiKey + '&query=' + query)
+               .toPromise().then((response: any) => response.results);
+  }
+
+  getActor(id): Promise<any> {
+    return this.http.get(this.url + '/person/' + id + '?api_key=' + this.apiKey)
+               .toPromise();
+  }
+
+  getActorMovies(id): Promise<any> {
+    return this.http.get(this.url + '/person/' + id + '/movie_credits?api_key=' + this.apiKey)
                .toPromise();
   }
 }

@@ -2,7 +2,7 @@
   <ion-toolbar>
     <ion-title class="ion-text-center">Movies</ion-title>
     <ion-buttons slot="end">
-      <ion-button>
+      <ion-button (click)="showSearch = !showSearch">
         <ion-icon name="search"></ion-icon>
       </ion-button>
     </ion-buttons>
@@ -11,10 +11,12 @@
 
 <ion-content>
   <div class="ion-padding">
+    <ion-searchbar *ngIf="showSearch" [(ngModel)]="search" (ngModelChange)="onSearch()"></ion-searchbar>
     <ion-grid>
       <ion-row>
         <ion-col>
-          <h1>Populaires</h1>
+          <h1 *ngIf="search">Recherche de : {{ search }}</h1>
+          <h1 *ngIf="!search">Populaires</h1>
         </ion-col>
       </ion-row>
     </ion-grid>
@@ -24,7 +26,10 @@
           <ion-card class="ion-no-margin" [routerLink]="['/movie', movie.id]">
             <img [src]="'https://image.tmdb.org/t/p/w200' + movie.poster_path" />
             <ion-card-content>
-              <h3>{{ movie.title }}</h3>
+              <h3>
+                {{ movie.title | slice:0:10 }}
+                <span *ngIf="movie.title.length > 10">...</span>
+              </h3>
               <ion-grid class="ion-no-padding ion-justify-content-center">
                 <ion-row class="ion-no-padding">
                   <ion-col class="ion-no-padding">

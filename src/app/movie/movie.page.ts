@@ -20,4 +20,8 @@ export class MoviePage {
     let id = this.activatedRoute.snapshot.paramMap.get('id');
     this.tmdb.getMovie(id).then(movie => this.movie = movie);
   }
+
+  filterCastWithPhoto(casts) {
+    return casts.filter(cast => cast.profile_path);
+  }
 }

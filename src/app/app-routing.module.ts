@@ -10,6 +10,10 @@ const routes: Routes = [
   {
     path: 'movie/:id',
     loadChildren: () => import('./movie/movie.module').then( m => m.MoviePageModule)
+  },
+  {
+    path: 'actor/:id',
+    loadChildren: () => import('./actor/actor.module').then( m => m.ActorPageModule)
   }
 ];
 
